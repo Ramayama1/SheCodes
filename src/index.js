@@ -40,7 +40,6 @@ function longAndLat(position) {
   let lon = position.coords.longitude;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&&units=${units}`;
   axios.get(apiUrl).then(showTemp);
-  console.log(apiUrl);
 }
 function locationFunction(event) {
   event.preventDefault();
