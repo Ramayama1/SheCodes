@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/eb2cf6c667.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="container2">
+        <nav class="navbar navbar-dark">
+          <a class="navbar-brand">Weather App</a>
+          <form class="form-inline" id="searchCity">
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Change city..."
+              aria-label="Search"
+              id="searchCityID"
+              autocomplete="off"
+            />
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+              <i class="fas fa-map-marker-alt" id="currentLocBtn"></i>
+            </button>
+          </form>
+        </nav>
+        <div class="row">
+          <div class="col-10">
+            <div class="card text-center">
+              <div class="card-body">
+                <h5 class="card-title cityName">----</h5>
+                <p class="card-text currentDay">----</p>
+
+                <h5 class="card-title">
+                  <i class="fas fa-cloud-sun-rain"></i>
+                </h5>
+                <h5 class="card-title"><span id="currentTemp">--</span>°</h5>
+                <p class="card-text">
+                  <button class="tempButton selected" id="toCelsius">C</button>
+                  |
+                  <button class="tempButton" id="toFar">F</button>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="card text-center">
+              <div class="card-body">
+                <h5 class="card-title">Mon</h5>
+                <p class="card-text">58 | 89</p>
+              </div>
+            </div>
+            <div class="card text-center">
+              <div class="card-body">
+                <h5 class="card-title">Tue</h5>
+                <p class="card-text">58 | 89</p>
+              </div>
+            </div>
+            <div class="card text-center">
+              <div class="card-body">
+                <h5 class="card-title">Wed</h5>
+                <p class="card-text">58 | 89</p>
+              </div>
+            </div>
+            <div class="card text-center">
+              <div class="card-body">
+                <h5 class="card-title">Thur</h5>
+                <p class="card-text">58 | 89</p>
+              </div>
+            </div>
+            <div class="card text-center">
+              <div class="card-body">
+                <h5 class="card-title">Fri</h5>
+                <p class="card-text">58 | 89</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="footer">
+          <p>
+            Coded by:
+            <a href="https://www.linkedin.com/in/mallory-eastburn-55464048"
+              ><strong>Mallory Eastburn</strong></a
+            >
+          </p>
+          <p class="links">
+            <a
+              href="https://www.linkedin.com/in/mallory-eastburn-55464048"
+              target="_blank"
+            >
+              <i class="fab fa-linkedin"></i
+            ></a>
+            <a href="https://www.facebook.com/mallory.eastburn/" target="_blank"
+              ><i class="fab fa-facebook-square"></i
+            ></a>
+            <a href="https://www.instagram.com/mal_theWebDev/" target="_blank"
+              ><i class="fab fa-instagram-square"></i
+            ></a>
+            <a href="https://twitter.com/MalloryEastburn" target="_blank"
+              ><i class="fab fa-twitter-square"></i
+            ></a>
+          </p>
+        </footer>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>

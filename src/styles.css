@@ -1,0 +1,108 @@
+body {
+  background-color: black;
+}
+.container2 {
+  margin: 50px auto;
+  padding: 20px;
+  max-width: 700px;
+}
+.container {
+  max-width: 900px;
+  background-image: url(https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+}
+.card-body,
+.card-footer,
+.col-2,
+.col-10,
+hr {
+  padding: 0;
+}
+.card-title,
+hr {
+  margin: 0;
+}
+.card,
+.navbar,
+.footer {
+  color: white;
+  margin: 5px;
+  background-color: rgba(65, 63, 63, 0.7) !important;
+  opacity: 0.9;
+}
+.col-10 h5.card-title,
+.navbar-brand {
+  font-size: 50px;
+}
+.navbar-brand {
+  font-family: "Alfa Slab One", cursive;
+}
+
+.footer {
+  margin: 40px auto 0px auto;
+  text-align: center;
+  font-family: monospace;
+  opacity: 0.9;
+}
+
+.links {
+  font-size: 20px;
+  color: white;
+}
+
+a {
+  text-decoration-style: none;
+  color: white;
+  opacity: 0.9;
+}
+a:hover {
+  text-decoration: none;
+  color: white;
+  background-color: transparent;
+  opacity: 1;
+}
+.footer p {
+  margin: 0px;
+}
+div.card.text-center:hover,
+.navbar:hover,
+.footer:hover {
+  box-shadow: 4px 4px 4px black;
+  opacity: 1;
+}
+.cityName {
+  line-height: 1.35;
+}
+.navbar,
+.footer {
+  margin: 5px -10px;
+}
+.tempButton {
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 14px;
+  outline: none !important;
+  margin-bottom: 5px;
+}
+
+.selected {
+  font-size: 20px;
+  font-weight: 500;
+  border-bottom: 4px solid white !important;
+  user-select: none;
+}
+
+.navbar,
+.footer {
+  border-radius: 0.25em;
+}
+
+#searchCityID {
+  border: none;
+  box-shadow: none;
+  padding: 2px;
+}
+
+.btn {
+  margin: 2px;
+}
