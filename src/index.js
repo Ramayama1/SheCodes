@@ -3,6 +3,59 @@ let apiRootUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
 let city = "Dallas";
 let units = "metric";
 let temp;
+//Getting Current Date/Time
+function getDay(day) {
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[day];
+}
+function getMonth(month) {
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  return months[month];
+}
+function getTime(hour, minute) {
+  if (minute < 10) {
+    minute = `0${minute}`;
+  }
+  if (hour > 12) {
+    hour = hour - 12;
+    return `${hour}:${minute} PM`;
+  } else {
+    return `${hour}:${minute} AM`;
+  }
+}
+function formatDate(timestamp) {
+  let currentDate = new Date(timestamp);
+  let day = getDay(currentDate.getDay());
+  let month = getMonth(currentDate.getMonth());
+  let date = currentDate.getDate();
+  let year = currentDate.getFullYear();
+  let hour = currentDate.getHours();
+  let minute = currentDate.getMinutes();
+  let time = getTime(hour, minute);
+  let newDate = `${day}, ${month} ${date}, ${year} ${time}`;
+  return newDate;
+}
 
 //change icon
 function changeIcon(icon) {
@@ -23,6 +76,8 @@ function showTemp(response) {
   celBtn.classList.add("selected");
   let iconId = response.data.weather[0].icon;
   changeIcon(iconId);
+  let dateElement = document.querySelector("#currentDate");
+  dateElement.innerHTML = `${formatDate(response.data.dt * 1000)}`;
 }
 //default temp function at page load
 function defaultTemp() {
@@ -81,63 +136,3 @@ let farBtn = document.querySelector("#toFar");
 let celBtn = document.querySelector("#toCelsius");
 farBtn.addEventListener("click", farFunction);
 celBtn.addEventListener("click", celFunction);
-
-//Getting Current Date/Time
-function getTodaysDate() {
-  function getDay(day) {
-    let days = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
-    return days[day];
-  }
-  function getMonth(month) {
-    let months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-    return months[month];
-  }
-  function getTime(hour, minute) {
-    if (minute < 10) {
-      minute = `0${minute}`;
-    }
-    if (hour > 12) {
-      hour = hour - 12;
-      return `${hour}:${minute} PM`;
-    } else {
-      return `${hour}:${minute} AM`;
-    }
-  }
-  function getDate() {
-    let currentDate = new Date();
-    let day = getDay(currentDate.getDay());
-    let month = getMonth(currentDate.getMonth());
-    let date = currentDate.getDate();
-    let year = currentDate.getFullYear();
-    let hour = currentDate.getHours();
-    let minute = currentDate.getMinutes();
-    let time = getTime(hour, minute);
-    let newDate = `${day}, ${month} ${date}, ${year} ${time}`;
-    return newDate;
-  }
-  let today = document.querySelector(".currentDay");
-  today.innerHTML = getDate();
-}
-getTodaysDate();
-//Search City Function
