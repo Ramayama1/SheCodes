@@ -44,25 +44,29 @@
           </form>
         </nav>
         <div class="row">
-          <div class="col-10">
-            <div class="card text-center">
-              <div class="card-body">
-                <h5 class="card-title cityName">----</h5>
-                <p class="card-text currentDay">----</p>
+          <div class="col-9 card text-center">
+            <div class="card-body">
+              <h5 class="card-title cityName">----</h5>
+              <p class="card-text currentDay">----</p>
 
-                <h5 class="card-title">
-                  <img id="currentIcon" src="" alt="" />
+              <h5 class="card-title">
+                <img id="currentIcon" src="" alt="" />
+              </h5>
+              <div class="row">
+                <h5 class="card-title col currentTempCol">
+                  <span id="currentTemp">--</span>°
                 </h5>
-                <h5 class="card-title"><span id="currentTemp">--</span>°</h5>
-                <p class="card-text">
-                  <button class="tempButton selected" id="toCelsius">C</button>
+                <p class="card-text col" id="cToFCol">
+                  <button class="tempButton selected" id="toCelsius">
+                    C
+                  </button>
                   |
                   <button class="tempButton" id="toFar">F</button>
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-2">
+          <div class="col-3">
             <div class="card text-center">
               <div class="card-body">
                 <h5 class="card-title">Mon</h5>
