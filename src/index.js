@@ -3,6 +3,12 @@ let apiRootUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
 let city = "Dallas";
 let units = "metric";
 let temp;
+
+//change icon
+function changeIcon(icon) {
+  let iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+  document.querySelector("#currentIcon").src = iconUrl;
+}
 //basic location and temp function
 function showTemp(response) {
   let tempSelector = document.querySelector("#currentTemp");
@@ -15,6 +21,8 @@ function showTemp(response) {
   searchValue.value = null;
   farBtn.classList.remove("selected");
   celBtn.classList.add("selected");
+  let iconId = response.data.weather[0].icon;
+  changeIcon(iconId);
 }
 //default temp function at page load
 function defaultTemp() {

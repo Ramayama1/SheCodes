@@ -106,3 +106,6 @@ div.card.text-center:hover,
 .btn {
   margin: 2px;
 }
+#currentIcon {
+  filter: grayscale(1);
+}
