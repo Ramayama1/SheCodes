@@ -92,7 +92,9 @@ div.card.text-center:hover,
 .selected {
   font-size: 20px;
   font-weight: 500;
-  border-bottom: 4px solid white !important;
+  /*background-color: white;
+  border-radius: 50%;
+  border: 4px solid white !important;*/
   user-select: none;
 }
 

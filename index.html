@@ -48,23 +48,22 @@
             <div class="card-body">
               <h5 class="card-title cityName">----</h5>
               <p class="card-text currentDay" id="currentDate">----</p>
+              <div class="row">
+                <h5 class="card-title col-7 currentTempCol">
+                  <span id="currentTemp">--</span>°
+                </h5>
+                <p class="card-text col-5" id="cToFCol">
+                  <button class="tempButton selected row" id="toCelsius">
+                    C
+                  </button>
+                  <button class="tempButton row" id="toFar">F</button>
+                </p>
+              </div>
 
               <h5 class="card-title">
                 <img id="currentIcon" src="" alt="" />
               </h5>
               <p id="currentDescription">--</p>
-              <div class="row">
-                <h5 class="card-title col currentTempCol">
-                  <span id="currentTemp">--</span>°
-                </h5>
-                <p class="card-text col" id="cToFCol">
-                  <button class="tempButton selected" id="toCelsius">
-                    C
-                  </button>
-                  |
-                  <button class="tempButton" id="toFar">F</button>
-                </p>
-              </div>
             </div>
           </div>
           <div class="col-3">
