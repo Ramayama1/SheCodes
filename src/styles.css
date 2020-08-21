@@ -26,8 +26,7 @@ hr {
   margin: 0;
 }
 .card,
-.navbar,
-.footer {
+.navbar {
   color: white;
   margin: 5px;
   background-color: rgba(65, 63, 63, 0.7) !important;
@@ -42,7 +41,9 @@ hr {
 }
 
 .footer {
-  margin: 40px auto 0px auto;
+  color: white;
+  background-color: rgba(65, 63, 63, 0.7) !important;
+  margin: 0px -10px !important;
   text-align: center;
   font-family: monospace;
   opacity: 0.9;
@@ -76,10 +77,10 @@ div.card.text-center:hover,
 .cityName {
   line-height: 1.35;
 }
-.navbar,
-.footer {
+.navbar {
   margin: 5px -10px;
 }
+
 .tempButton {
   background: transparent;
   color: white;
@@ -107,7 +108,9 @@ div.card.text-center:hover,
   box-shadow: none;
   padding: 2px;
 }
-
+#currentIcon {
+  margin-top: -30px;
+}
 .btn {
   margin: 2px;
 }
