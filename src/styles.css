@@ -146,6 +146,7 @@ p.card-text {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
   }
   .navbar-brand {
     font-size: 30px;
