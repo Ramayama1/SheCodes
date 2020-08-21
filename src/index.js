@@ -56,7 +56,13 @@ function formatDate(timestamp) {
   let newDate = `${day}, ${month} ${date}, ${year} ${time}`;
   return newDate;
 }
-
+function forecastTime(timestamp) {
+  let time = new Date(timestamp);
+  let hour = time.getHours();
+  let minute = time.getMinutes();
+  time = getTime(hour, minute);
+  return time;
+}
 //change icon
 function changeIcon(icon) {
   let iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
@@ -79,11 +85,29 @@ function showTemp(response) {
   let dateElement = document.querySelector("#currentDate");
   dateElement.innerHTML = `${formatDate(response.data.dt * 1000)}`;
 }
+function showForecast(response) {
+  let i = 0;
+  while (i < 5) {
+    document.querySelector(`#forecast${i}min`).innerHTML = Math.round(
+      response.data.list[i].main.temp_min
+    );
+    document.querySelector(`#forecast${i}max`).innerHTML = Math.round(
+      response.data.list[i].main.temp_max
+    );
+    document.querySelector(`#time${i}`).innerHTML = forecastTime(
+      response.data.list[i].dt * 1000
+    );
+    i++;
+  }
+
+  //console.log(response.data.list[0].main.temp_max);
+}
 //default temp function at page load
 function defaultTemp() {
   let apiUrl = `${apiRootUrl}${city}&appid=${apiKey}&&units=${units}`;
   axios.get(apiUrl).then(showTemp);
-  console.log(apiUrl);
+  let apiForecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&&units=${units}`;
+  axios.get(apiForecastUrl).then(showForecast);
 }
 defaultTemp();
 //city search selector
@@ -113,15 +137,30 @@ let currentLocation = document.querySelector("#currentLocBtn");
 currentLocation.addEventListener("click", locationFunction);
 
 // Celsius/Farhenheit converter
-
+function cToFFunc(num) {
+  return Math.round((num * 9) / 5 + 32);
+}
+function fToCFunc(num) {
+  return Math.round(((num - 32) * 5) / 9);
+}
 function farFunction(event) {
   event.preventDefault();
   farBtn.classList.add("selected");
   celBtn.classList.remove("selected");
   let tempSelector = document.querySelector("#currentTemp");
   let cToF = Number(tempSelector.innerHTML);
-  cToF = Math.round((cToF * 9) / 5 + 32);
+  cToF = cToFFunc(cToF);
   tempSelector.innerHTML = `${cToF}`;
+  let i = 0;
+  while (i < 5) {
+    let tempMin = document.querySelector(`#forecast${i}min`).innerHTML;
+    tempMin = Math.round(cToFFunc(tempMin));
+    document.querySelector(`#forecast${i}min`).innerHTML = tempMin;
+    tempMax = document.querySelector(`#forecast${i}max`).innerHTML;
+    tempMax = Math.round(cToFFunc(tempMax));
+    document.querySelector(`#forecast${i}max`).innerHTML = tempMax;
+    i++;
+  }
 }
 
 function celFunction(event) {
@@ -130,6 +169,16 @@ function celFunction(event) {
   celBtn.classList.add("selected");
   let tempSelector = document.querySelector("#currentTemp");
   tempSelector.innerHTML = temp;
+  let i = 0;
+  while (i < 5) {
+    let tempMin = document.querySelector(`#forecast${i}min`).innerHTML;
+    tempMin = Math.round(fToCFunc(tempMin));
+    document.querySelector(`#forecast${i}min`).innerHTML = tempMin;
+    tempMax = document.querySelector(`#forecast${i}max`).innerHTML;
+    tempMax = Math.round(fToCFunc(tempMax));
+    document.querySelector(`#forecast${i}max`).innerHTML = tempMax;
+    i++;
+  }
 }
 
 let farBtn = document.querySelector("#toFar");
