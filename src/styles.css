@@ -11,7 +11,7 @@ body {
   min-width: 570px;
   background-image: url(https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
 }
-.col-3 {
+.bottomRow {
   max-width: 23%;
 }
 .card-body,
@@ -33,7 +33,7 @@ hr {
   background-color: rgba(65, 63, 63, 0.7) !important;
   opacity: 0.9;
 }
-.col-9 h5.card-title,
+.topRow h5.card-title,
 .navbar-brand {
   font-size: 50px;
 }
@@ -114,9 +114,7 @@ div.card.text-center:hover,
 .currentDay {
   margin: 0;
 }
-#currentIcon {
-  filter: grayscale(1);
-}
+
 .currentTempCol {
   text-align: right !important;
 }
@@ -130,4 +128,13 @@ div.card.text-center:hover,
   font-size: 14px;
   font-weight: 500;
   color: white;
+}
+.topRow {
+  margin: 0 -10px;
+}
+.forecastIcon {
+  width: 50px !important;
+}
+p.card-text {
+  margin: 0;
 }

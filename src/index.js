@@ -90,6 +90,10 @@ function showTemp(response) {
 function showForecast(response) {
   let i = 0;
   while (i < 5) {
+    document.querySelector(
+      `#icon${i}`
+    ).src = `https://openweathermap.org/img/wn/${response.data.list[i].weather[0].icon}@2x.png`;
+
     document.querySelector(`#forecast${i}min`).innerHTML = Math.round(
       response.data.list[i].main.temp_min
     );
