@@ -141,13 +141,7 @@ div.card.text-center:hover,
 p.card-text {
   margin: 0;
 }
-@media (max-width: 755px) {
-  .container2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+@media (max-width: 750px) {
   .navbar {
     display: flex;
     flex-direction: column;
