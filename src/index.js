@@ -70,6 +70,10 @@ function changeIcon(icon) {
 }
 //basic location and temp function
 function showTemp(response) {
+  document.querySelector("#windSpeed").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#currentDescription").innerHTML =
     response.data.weather[0].description;
   let tempSelector = document.querySelector("#currentTemp");
