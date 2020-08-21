@@ -141,7 +141,7 @@ div.card.text-center:hover,
 p.card-text {
   margin: 0;
 }
-@media (max-width: 730px) {
+@media (max-width: 755px) {
   .navbar {
     display: flex;
     flex-direction: column;
