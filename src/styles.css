@@ -8,6 +8,7 @@ body {
 }
 .container {
   max-width: 900px;
+  min-width: 570px;
   background-image: url(https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
 }
 .col-3 {
@@ -121,4 +122,10 @@ div.card.text-center:hover,
 #cToFCol {
   text-align: left;
   align-self: center;
+}
+#currentDescription {
+  margin: -25px 0 0 0;
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 500;
 }

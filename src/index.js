@@ -70,6 +70,8 @@ function changeIcon(icon) {
 }
 //basic location and temp function
 function showTemp(response) {
+  document.querySelector("#currentDescription").innerHTML =
+    response.data.weather[0].description;
   let tempSelector = document.querySelector("#currentTemp");
   temp = Math.round(response.data.main.temp);
   tempSelector.innerHTML = temp;
@@ -99,8 +101,6 @@ function showForecast(response) {
     );
     i++;
   }
-
-  //console.log(response.data.list[0].main.temp_max);
 }
 //default temp function at page load
 function defaultTemp() {
@@ -127,6 +127,8 @@ function longAndLat(position) {
   let lon = position.coords.longitude;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&&units=${units}`;
   axios.get(apiUrl).then(showTemp);
+  let apiForecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&&units=${units}`;
+  axios.get(apiForecastUrl).then(showForecast);
 }
 function locationFunction(event) {
   event.preventDefault();
