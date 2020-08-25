@@ -155,39 +155,43 @@ function fToCFunc(num) {
 }
 function farFunction(event) {
   event.preventDefault();
-  farBtn.classList.add("selected");
-  celBtn.classList.remove("selected");
-  let tempSelector = document.querySelector("#currentTemp");
-  let cToF = Number(tempSelector.innerHTML);
-  cToF = cToFFunc(cToF);
-  tempSelector.innerHTML = `${cToF}`;
-  let i = 0;
-  while (i < 5) {
-    let tempMin = document.querySelector(`#forecast${i}min`).innerHTML;
-    tempMin = Math.round(cToFFunc(tempMin));
-    document.querySelector(`#forecast${i}min`).innerHTML = tempMin;
-    tempMax = document.querySelector(`#forecast${i}max`).innerHTML;
-    tempMax = Math.round(cToFFunc(tempMax));
-    document.querySelector(`#forecast${i}max`).innerHTML = tempMax;
-    i++;
+  if (celBtn.classList.contains("selected")) {
+    farBtn.classList.add("selected");
+    celBtn.classList.remove("selected");
+    let tempSelector = document.querySelector("#currentTemp");
+    let cToF = Number(tempSelector.innerHTML);
+    cToF = cToFFunc(cToF);
+    tempSelector.innerHTML = `${cToF}`;
+    let i = 0;
+    while (i < 5) {
+      let tempMin = document.querySelector(`#forecast${i}min`).innerHTML;
+      tempMin = Math.round(cToFFunc(tempMin));
+      document.querySelector(`#forecast${i}min`).innerHTML = tempMin;
+      tempMax = document.querySelector(`#forecast${i}max`).innerHTML;
+      tempMax = Math.round(cToFFunc(tempMax));
+      document.querySelector(`#forecast${i}max`).innerHTML = tempMax;
+      i++;
+    }
   }
 }
 
 function celFunction(event) {
   event.preventDefault();
-  farBtn.classList.remove("selected");
-  celBtn.classList.add("selected");
-  let tempSelector = document.querySelector("#currentTemp");
-  tempSelector.innerHTML = temp;
-  let i = 0;
-  while (i < 5) {
-    let tempMin = document.querySelector(`#forecast${i}min`).innerHTML;
-    tempMin = Math.round(fToCFunc(tempMin));
-    document.querySelector(`#forecast${i}min`).innerHTML = tempMin;
-    tempMax = document.querySelector(`#forecast${i}max`).innerHTML;
-    tempMax = Math.round(fToCFunc(tempMax));
-    document.querySelector(`#forecast${i}max`).innerHTML = tempMax;
-    i++;
+  if (farBtn.classList.contains("selected")) {
+    farBtn.classList.remove("selected");
+    celBtn.classList.add("selected");
+    let tempSelector = document.querySelector("#currentTemp");
+    tempSelector.innerHTML = temp;
+    let i = 0;
+    while (i < 5) {
+      let tempMin = document.querySelector(`#forecast${i}min`).innerHTML;
+      tempMin = Math.round(fToCFunc(tempMin));
+      document.querySelector(`#forecast${i}min`).innerHTML = tempMin;
+      tempMax = document.querySelector(`#forecast${i}max`).innerHTML;
+      tempMax = Math.round(fToCFunc(tempMax));
+      document.querySelector(`#forecast${i}max`).innerHTML = tempMax;
+      i++;
+    }
   }
 }
 
